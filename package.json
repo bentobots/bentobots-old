@@ -1,0 +1,27 @@
+{
+  "name": "bentobots",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.22.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bentobots/bentobots.git"
+  },
+  "keywords": [],
+  "author": "John Rees <john@bitsushi.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bentobots/bentobots/issues"
+  },
+  "homepage": "https://github.com/bentobots/bentobots#readme",
+  "dependencies": {
+    "graphlib": "^2.1.1",
+    "memoizee": "^0.4.2"
+  }
+}
