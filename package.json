@@ -1,17 +1,13 @@
 {
   "name": "bentobots",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
-  "devDependencies": {
-    "babel-preset-es2015": "^6.22.0"
-  },
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bentobots/bentobots.git"
+    "test": "jest src/**/*.test.js",
+    "build": "rm -rf lib && babel -d lib/ src/",
+    "prepublish": "npm run build",
+    "prebuild": "npm run test"
   },
   "keywords": [],
   "author": "John Rees <john@bitsushi.com>",
@@ -20,8 +16,21 @@
     "url": "https://github.com/bentobots/bentobots/issues"
   },
   "homepage": "https://github.com/bentobots/bentobots#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bentobots/bentobots.git"
+  },
   "dependencies": {
-    "graphlib": "^2.1.1",
-    "memoizee": "^0.4.2"
+    "asynquence": "^0.10.0",
+    "immutable": "^3.8.1",
+    "memoizee": "^0.4.3",
+    "topolysis": "^1.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-jest": "^18.0.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "jest": "^19.0.1"
   }
 }
