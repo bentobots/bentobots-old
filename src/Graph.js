@@ -18,6 +18,7 @@ class Graph {
   }
 
   addBot (bot) {
+    // console.log(bot)
     if (!bot) throw new Error('Bot not given')
     if (bot.graph) throw new Error('Bot was already added to graph')
     if (this.bots.find(b => b.id === bot.id)) {
@@ -73,13 +74,13 @@ class Graph {
     this.sorted = toReverse// .reverse()
   }
 
-  run (debug = false) {
+  run (callback, debug = false) {
     const wrap = (id) => (done) => {
       done(this.getBotById(id).work())
     }
     this.sorted.forEach(ids => {
-      console.log(`Running parallel batch... ${ids}`)
-      ASQ().all(...ids.map(wrap))
+      if (debug) { console.log(`Running parallel batch... ${ids}`) }
+      ASQ().all(...ids.map(wrap)).then(() => callback())
     })
   }
 

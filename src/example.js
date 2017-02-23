@@ -1,9 +1,11 @@
 import { Graph, Bot } from './index'
 import colors from 'colors/safe'
 
+import add from './bots/AddBot'
+
 var graph = new Graph({name: 'Test Graph'})
 
-const add = ({ X = 1, Y = 1 }) => ({ SUM: X + Y })
+// const add = ({ X = 1, Y = 1 }) => ({ SUM: X + Y })
 const prettyPrint = ({ IN }) => console.log(colors.rainbow(`The result is: ${IN}`))
 
 const bots = [
@@ -20,4 +22,4 @@ const bots = [
 bots.map(graph.addBot)
 
 // console.log(graph)
-graph.run(true)
+graph.run()

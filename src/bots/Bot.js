@@ -4,8 +4,12 @@ class Bot {
     this.id = id
     this.component = component
     this.inputs = inputs
-    this.metadata = {}
-    // this.outputs = outputs
+    this.metadata = metadata
+    this.outputs = { SUM: 0 }
+  }
+
+  _outputs () {
+    return this.outputs
   }
 
   work () {
@@ -20,7 +24,7 @@ class Bot {
       }
     })
     // console.log(`working: ${this.id}`)
-    this.graph.data[this.id] = this.component(inputs)
+    this.graph.data[this.id] = this.outputs = this.component(inputs)
   }
 
   // addInPort({ id, validTypes }) {
