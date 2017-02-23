@@ -11,9 +11,10 @@
 ## Usage
 
 ```
-import Bento from 'bentobots'
+import {Graph, Bot} from 'bentobots'
 
-var b = new Bento()
+var graph = new Graph({name: 'Test Graph'})
+console.log(graph)
 ```
 
 ## Features
