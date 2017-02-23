@@ -4,10 +4,14 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest src/**/*.test.js",
+    "test": "jest",
     "build": "rm -rf lib && babel -d lib/ src/",
     "prepublish": "npm run build",
     "prebuild": "npm run test"
+  },
+  "jest": {
+    "verbose": true,
+    "testPathIgnorePatterns": ["/lib/"]
   },
   "keywords": [],
   "author": "John Rees <john@bitsushi.com>",

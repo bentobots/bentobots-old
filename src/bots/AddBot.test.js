@@ -1,3 +1,3 @@
 import AddBot from './AddBot'
 
-it('works')
+it('can be created')
