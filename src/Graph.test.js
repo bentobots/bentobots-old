@@ -7,8 +7,10 @@ import Connection from './Connection'
 //   expect(graph.name).toEqual('My Graph')
 // })
 const graphWithBots = new Graph()
-const first = new Bot({id: 'first'})
-const second = new Bot({id: 'second'})
+const fn = () => {}
+
+const first = new Bot('first', fn)
+const second = new Bot('second', fn)
 // it('can add a bot')
 graphWithBots.addBot(first)
 graphWithBots.addBot(second)
@@ -24,7 +26,7 @@ it('cannot add the same bot twice', () => {
 })
 
 it('cannot add a bot with the same name', () => {
-  const third = new Bot({id: 'second'})
+  const third = new Bot('second', fn)
   expect(() => {
     graphWithBots.addBot(third)
   }).toThrow(new Error('Bot with that id already in graph'))

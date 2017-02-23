@@ -11,7 +11,9 @@
   },
   "jest": {
     "verbose": true,
-    "testPathIgnorePatterns": ["/lib/"]
+    "testPathIgnorePatterns": [
+      "/lib/"
+    ]
   },
   "keywords": [],
   "author": "John Rees <john@bitsushi.com>",
@@ -26,6 +28,7 @@
   },
   "dependencies": {
     "asynquence": "^0.10.0",
+    "colors": "^1.1.2",
     "immutable": "^3.8.1",
     "memoizee": "^0.4.3",
     "topolysis": "^1.1.1"

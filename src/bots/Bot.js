@@ -1,10 +1,26 @@
 class Bot {
 
-  constructor ({ id, inPorts = {}, outPorts = {}, metadata = {} } = {}) {
+  constructor (id, component, inputs = {}, metadata = {}) {
     this.id = id
+    this.component = component
+    this.inputs = inputs
     this.metadata = {}
-    this.inPorts = inPorts
-    this.outPorts = outPorts
+    // this.outputs = outputs
+  }
+
+  work () {
+    // console.log(`running ${this.id}`)
+    const inputs = {}
+    Object.keys(this.inputs).forEach(k => {
+      const value = this.inputs[k]
+      if (typeof value === 'string' || value instanceof String) {
+        inputs[k] = this.graph.data[value.split('>')[0]][value.split('>')[1]]
+      } else {
+        inputs[k] = value
+      }
+    })
+    // console.log(`working: ${this.id}`)
+    this.graph.data[this.id] = this.component(inputs)
   }
 
   // addInPort({ id, validTypes }) {
@@ -14,10 +30,10 @@ class Bot {
   //   }
   // }
 
-  static registerClass (key, constructor) {
-    constructor.type = key
-    Bot.classes[key] = constructor
-  }
+  // static registerClass (key, constructor) {
+  //   constructor.type = key
+  //   Bot.classes[key] = constructor
+  // }
 
 }
 

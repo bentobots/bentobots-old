@@ -12,6 +12,9 @@ class Graph {
     // this._graph = new graphlib.Graph({directed: true})
     this.graph = {}
     this.sorted = []
+    this.data = {}
+
+    this.addBot = this.addBot.bind(this)
   }
 
   addBot (bot) {
@@ -23,6 +26,14 @@ class Graph {
     bot.graph = this
     this.graph[bot.id] = []
     this.bots = this.bots.push(bot)
+
+    Object.keys(bot.inputs).forEach(k => {
+      const value = bot.inputs[k]
+      if (typeof value === 'string' || value instanceof String) {
+        this.graph[bot.id].push(value.split('>')[0])
+      }
+    })
+
     this.sort()
   }
 
@@ -59,13 +70,17 @@ class Graph {
     for (const ids of topolysis(this.graph)) {
       toReverse.push(ids)
     }
-    this.sorted = toReverse.reverse()
-    // toReverse.reverse().forEach(ids => {
-    //   // console.log(`RUNNING BATCH SEQUENTIALLY...... ${ids}`)
-    //   // ids.forEach(id => bots.find(b => b.id === id).work())
-    //   console.log(`RUNNING BATCH IN PARALLEL...... ${ids}`)
-    //   ASQ().all(...ids.map(wrap))// .val(function () { console.log(arguments) })
-    // })
+    this.sorted = toReverse// .reverse()
+  }
+
+  run (debug = false) {
+    const wrap = (id) => (done) => {
+      done(this.getBotById(id).work())
+    }
+    this.sorted.forEach(ids => {
+      console.log(`Running parallel batch... ${ids}`)
+      ASQ().all(...ids.map(wrap))
+    })
   }
 
 }
