@@ -4,7 +4,6 @@ import ASQ from 'asynquence'
 import topolysis from 'topolysis'
 
 class Graph {
-
   constructor ({name = 'My Graph'} = {}) {
     this.name = name
     this.bots = Immutable.List()
@@ -31,7 +30,10 @@ class Graph {
     Object.keys(bot.inputs).forEach(k => {
       const value = bot.inputs[k]
       if (typeof value === 'string' || value instanceof String) {
-        this.graph[bot.id].push(value.split('>')[0])
+        const patternMatch = value.match(/([A-Z][A-Za-z0-9]+)>([A-Z]+)/)
+        if (patternMatch) { // if it matches Process1>PORT, then it's an alias
+          this.graph[bot.id].push(patternMatch[1])
+        }
       }
     })
 
@@ -83,7 +85,6 @@ class Graph {
       ASQ().all(...ids.map(wrap)).then(() => callback())
     })
   }
-
 }
 
 export default Graph
