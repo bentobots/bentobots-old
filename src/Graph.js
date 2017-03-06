@@ -14,9 +14,10 @@ class Graph {
     this.data = {}
 
     this.addBot = this.addBot.bind(this)
+    this.addConnection = this.addConnection.bind(this)
   }
 
-  addBot (bot) {
+  addBot (bot, callback = null) {
     // console.log(bot)
     if (!bot) throw new Error('Bot not given')
     if (bot.graph) throw new Error('Bot was already added to graph')
@@ -38,6 +39,8 @@ class Graph {
     })
 
     this.sort()
+
+    if (callback) { callback(bot) }
   }
 
   removeBot (bot) {
@@ -52,8 +55,9 @@ class Graph {
 
   addConnection (conn) {
     if (conn.graph) throw new Error('Connection was already added to a graph')
-
     this.graph[conn.srcBot.id].push(conn.tgtBot.id)
+
+    conn.tgtBot.inputs[conn.tgtPort] = `${conn.srcBot.id}>${conn.srcPort}`
 
     conn.graph = this
     this.connections = this.connections.push(conn)
@@ -63,6 +67,8 @@ class Graph {
   removeConnection (conn) {
     const i = this.graph[conn.srcBot.id].indexOf(conn.tgtBot.id)
     if (i != -1) { this.graph[conn.srcBot.id].splice(i, 1) }
+
+    // conn.tgtBot.inputs[conn.tgtPort] = null
 
     this.connections = this.connections.filterNot(c => c === conn)
     this.sort()

@@ -1,15 +1,10 @@
 class Bot {
-
   constructor (id, component, inputs = {}, metadata = {}) {
     this.id = id
     this.component = component
+    this.outputs = component.outputs
     this.inputs = inputs
     this.metadata = metadata
-    this.outputs = { SUM: 0 }
-  }
-
-  _outputs () {
-    return this.outputs
   }
 
   work () {
@@ -24,7 +19,7 @@ class Bot {
       }
     })
     // console.log(`working: ${this.id}`)
-    this.graph.data[this.id] = this.outputs = this.component(inputs)
+    this.graph.data[this.id] = this.outputs = this.component.implementation(inputs)
   }
 
   // addInPort({ id, validTypes }) {
@@ -38,7 +33,6 @@ class Bot {
   //   constructor.type = key
   //   Bot.classes[key] = constructor
   // }
-
 }
 
 module.exports = Bot

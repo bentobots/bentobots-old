@@ -2,8 +2,11 @@ import Connection from './Connection'
 import Bot from './bots/Bot'
 
 it('can be created', () => {
-  const src = new Bot({name: 'src'})
-  const tgt = new Bot({name: 'tgt'})
+  const component = {
+    outputs: {}
+  }
+  const src = new Bot('src', component)
+  const tgt = new Bot('tgt', component)
 
   const connection = new Connection({
     srcBot: src,
