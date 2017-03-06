@@ -13,7 +13,12 @@ class Bot {
     Object.keys(this.inputs).forEach(k => {
       const value = this.inputs[k]
       if (typeof value === 'string' || value instanceof String) {
-        inputs[k] = this.graph.data[value.split('>')[0]][value.split('>')[1]]
+        const patternMatch = value.match(/([A-Z][A-Za-z0-9]+)>([A-Z]+)/)
+        if (patternMatch) { // if it matches Process1>PORT, then it's an alias
+          inputs[k] = this.graph.data[value.split('>')[0]][value.split('>')[1]]
+        } else {
+          inputs[k] = value
+        }
       } else {
         inputs[k] = value
       }
