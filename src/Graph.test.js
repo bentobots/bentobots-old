@@ -39,5 +39,15 @@ it('can remove a bot', () => {
   expect(graphWithBotsClone.bots.toArray().length).toEqual(1)
 })
 
+it('can sort', () => {
+  // const graph = new Graph()
+  // const makeList = ({ x, y, z }) => { LIST: [x, y, z] }
+  // graph.addBot(new Bot('first', makeList, {x: 1, y: 2, z: 3}))
+  // graph.addBot(new Bot('second', makeList, {x: 'first>LIST', y: 4, z: 5}))
+  // graph.addBot(new Bot('third', makeList, {x: 'first>LIST', y: 'first>LIST', z: 5}))
+  // graph.sort()
+  // expect(graph.sorted).toEqual(2)
+})
+
 it('can add a connection')
 it('can remove a connection')

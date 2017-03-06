@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "declaration": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+
+    "sourceMap": false,
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "target": "es5"
+  },
+  "formatCodeOptions": {
+    "indentSize": 2,
+    "tabSize": 2
+  }
+}
