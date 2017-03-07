@@ -1,14 +1,16 @@
 # BentōBots
 
+## NOTE: This is an extremely early alpha release and will be continuously changing in the coming weeks/months
+
 [![Build Status](https://travis-ci.org/bentobots/bentobots.png)](https://travis-ci.org/bentobots/bentobots)
 
-# NOTE: This is an extremely early alpha release and will be continuously changing in the coming weeks/months
+[![NPM](https://nodei.co/npm/bentobots.svg)(https://www.npmjs.com/package/bentobots)]
 
-## Installation
+### Installation
 
 `npm install bentobots`
 
-## Usage
+### Usage
 
 ```
 import {Graph, Bot} from 'bentobots'
@@ -17,6 +19,6 @@ var graph = new Graph({name: 'Test Graph'})
 console.log(graph)
 ```
 
-## Features
+### Features
 
 Parses [FBP](http://www.jpaulmorrison.com/fbp) graph definitions
