@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/bentobots/bentobots.png)](https://travis-ci.org/bentobots/bentobots)
 
-[![NPM](https://nodei.co/npm/bentobots.svg)](https://www.npmjs.com/package/bentobots)
+[![NPM](https://nodei.co/npm/bentobots.svg?downloads=true)](https://www.npmjs.com/package/bentobots)
 
 ### Installation
 
