@@ -1,10 +1,11 @@
 class Bot {
-  constructor (id, component, inputs = {}, metadata = {}) {
+  constructor (id, component, inputs = {}, metadata = {}, visible=true) {
     this.id = id
     this.component = component
     this.outputs = component.outputs
     this.inputs = inputs
     this.metadata = metadata
+    this.visible = visible
   }
 
   work () {
