@@ -1,10 +1,9 @@
-function Bot(id, component, inputs = {}, metadata = {}, visible=true) {
+function Bot(id, component, inputs = {}, metadata = {}) {
   this.id = id
   this.component = component
   this.outputs = component.outputs
   this.inputs = inputs
   this.metadata = metadata
-  this.visible = visible
 }
 
 Bot.prototype.work = function() {
