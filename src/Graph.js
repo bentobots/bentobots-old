@@ -1,5 +1,4 @@
 import Immutable from 'immutable'
-import memoize from 'memoizee'
 import ASQ from 'asynquence'
 import topolysis from 'topolysis'
 
