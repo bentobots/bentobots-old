@@ -1,0 +1,12 @@
+{
+  "name": "bentobots-range",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest src/**/*.test.js"
+  },
+  "keywords": [],
+  "author": "John Rees <john@bitsushi.com>",
+  "license": "MIT"
+}
