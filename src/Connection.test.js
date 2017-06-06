@@ -1,5 +1,5 @@
 import Connection from './Connection'
-import Bot from './bots/Bot'
+import Bot from './Bot'
 
 it('can be created', () => {
   const component = {

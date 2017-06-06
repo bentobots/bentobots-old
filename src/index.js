@@ -1,3 +1,3 @@
 export {default as Graph} from './Graph'
 export {default as Connection} from './Connection'
-export {default as Bot} from './bots/Bot'
+export {default as Bot} from './Bot'

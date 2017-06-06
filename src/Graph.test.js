@@ -1,5 +1,5 @@
 import Graph from './Graph'
-import Bot from './bots/Bot'
+import Bot from './Bot'
 import Connection from './Connection'
 
 // it('can be created', () => {

@@ -7,7 +7,7 @@ class Graph {
     this.name = name
     this.bots = Immutable.List()
     this.connections = Immutable.List()
-    // this._graph = new graphlib.Graph({directed: true})
+
     this.graph = {}
     this.sorted = []
     this.data = {}
@@ -81,13 +81,15 @@ class Graph {
     this.sorted = toReverse// .reverse()
   }
 
-  run (callback, debug = false) {
+  run (callback, debug = true) {
     const wrap = (id) => (done) => {
       done(this.getBotById(id).work())
     }
     this.sorted.forEach(ids => {
-      if (debug) { console.log(`Running parallel batch... ${ids}`) }
-      ASQ().all(...ids.map(wrap)).then(() => callback())
+      if (debug) {
+        // console.log(`Running parallel batch... ${ids}`)
+      }
+      ASQ().all(...ids.map(wrap))//.then(() => callback())
     })
   }
 }

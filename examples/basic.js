@@ -1,12 +1,10 @@
-import { Graph, Bot } from './index'
+import { Graph, Bot } from '../lib'
 import colors from 'colors/safe'
-
-import add from './bots/AddBot'
 
 var graph = new Graph({name: 'Test Graph'})
 
-// const add = ({ X = 1, Y = 1 }) => ({ SUM: X + Y })
-const prettyPrint = ({ IN }) => console.log(colors.rainbow(`The result is: ${IN}`))
+const add = { implementation: ({ X = 1, Y = 1 }) => ({ SUM: X + Y }) }
+const prettyPrint = { implementation: ({ IN }) => console.log(colors.rainbow(`The result is: ${IN}`)) }
 
 const bots = [
   new Bot('Add1', add, { X: 3, Y: 3 }),
@@ -19,7 +17,6 @@ const bots = [
   new Bot('Print1', prettyPrint, { IN: 'Add7>SUM' })
 ]
 
-bots.map(graph.addBot)
+bots.map(b => graph.addBot(b))
 
-// console.log(graph)
 graph.run()
