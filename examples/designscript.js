@@ -35,7 +35,7 @@ const pointByCoords = {
 }
 
 const bots = [
-  new BentoBots.Bot('CodeBlock', codeBlock, {}),
+  new BentoBots.Bot('CodeBlock', codeBlock),
   new BentoBots.Bot('Range', range, { START: 'CodeBlock>A', END: 'CodeBlock>B', STEP: 'CodeBlock>C' }),
   new BentoBots.Bot('Print1', prettyPrint, { IN: 'Range>SEQ' }),
   new BentoBots.Bot('Point', pointByCoords, { X: 'Range>SEQ', Y: 'Range>SEQ', Z: 0 }),
