@@ -30,7 +30,6 @@
     "asynquence": "^0.10.0",
     "colors": "^1.1.2",
     "immutable": "^3.8.1",
-    "memoizee": "^0.4.5",
     "topolysis": "^1.1.1"
   },
   "devDependencies": {

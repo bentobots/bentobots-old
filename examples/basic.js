@@ -20,3 +20,5 @@ const bots = [
 bots.map(b => graph.addBot(b))
 
 graph.run()
+
+setTimeout(function() { console.log(graph) }, 1000)
