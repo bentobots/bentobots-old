@@ -2,14 +2,16 @@ import { List } from 'immutable'
 import ASQ from 'asynquence'
 import topolysis from 'topolysis'
 
-function Graph({name = 'My Graph'} = {}) {
+function Graph({name = 'Untitled Graph'} = {}) {
   this.name = name
-  this.bots = new List()
-  this.connections = new List()
+  this.bots = List()
+  this.connections = List()
 
   this.graph = {}
   this.sorted = []
   this.data = {}
+
+  this.asq = ASQ()
 }
 
 Graph.prototype.addBot = function(bot, callback = null) {
@@ -74,18 +76,18 @@ Graph.prototype.sort = function() {
   for (const ids of topolysis(this.graph)) {
     toReverse.push(ids)
   }
-  this.sorted = toReverse// .reverse()
+  this.sorted = toReverse
 }
 
 Graph.prototype.run = function(callback, debug = true) {
-  const wrap = (id) => (done) => {
+  const wrap = id => done => {
     done(this.getBotById(id).work())
   }
   this.sorted.forEach(ids => {
     if (debug) {
-      // console.log(`Running parallel batch... ${ids}`)
+      console.log(`Running parallel batch... ${ids}`)
     }
-    ASQ().all(...ids.map(wrap))//.then(() => callback())
+    this.asq.all(...ids.map(wrap))//.then(() => callback())
   })
 }
 
