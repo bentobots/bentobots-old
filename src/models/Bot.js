@@ -1,9 +1,17 @@
-function Bot(id, component, inputs = {}, metadata = {}) {
+/**
+ * A bot (node) in the graph.
+ * @constructor
+ * @param {string} id - The unique identifier of the bot
+ * @param {reference} component - The script that the bot uses
+ * @param {inputs} object - A key/value object representing the values passed to the bot
+ * @param {metadata} object
+ */
+function Bot(id = x`id`, component = x`component`, inputs = {}, metadata = {}) {
   this.id = id
   this.component = component
-  this.outputs = component.outputs
   this.inputs = inputs
   this.metadata = metadata
+  this.outputs = component.outputs
 }
 
 Bot.prototype.work = function() {
@@ -23,5 +31,7 @@ Bot.prototype.work = function() {
   })
   this.graph.data[this.id] = this.outputs = this.component.implementation(inputs)
 }
+
+const x = p => { throw new Error(`Missing parameter: ${p}`) }
 
 module.exports = Bot

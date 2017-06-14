@@ -13,7 +13,7 @@ it('can intersect shapes', () => {
   const holeShape = new Shape(pathWithHole, true)
   const shape = new Shape([path], true)
 
-  console.log(shape.intersect(holeShape))
+  // console.log(shape.intersect(holeShape))
   expect(true).toEqual(true)
 
   // const result = intersect.implementation({SUBJECT_PATHS: pathWithHole, CLIP_PATHS: path})

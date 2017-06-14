@@ -11,6 +11,7 @@
   },
   "jest": {
     "verbose": true,
+    "testEnvironment": "node",
     "testPathIgnorePatterns": [
       "/lib/"
     ]

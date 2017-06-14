@@ -22,4 +22,5 @@ bots.map(b => graph.addBot(b))
 
 graph.run()
 
-setTimeout(function() { console.log(graph) }, 1000)
+// console.log(graph.connections)
+// setTimeout(function() { console.log(graph) }, 1000)

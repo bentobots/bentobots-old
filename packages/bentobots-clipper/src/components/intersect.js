@@ -16,8 +16,8 @@ const implementation = ({ SUBJECT_PATHS, CLIP_PATHS } = {}) => {
   // } else {
   //   console.log('CLINOTARR')
   // }
-  console.log('SUB', SUBJECT_PATHS)
-  console.log('CLIP', CLIP_PATHS)
+  // console.log('SUB', SUBJECT_PATHS)
+  // console.log('CLIP', CLIP_PATHS)
   const subject = new Shape(SUBJECT_PATHS, true)
   const clip = new Shape(CLIP_PATHS, true)
   const result = subject.intersect(clip)
